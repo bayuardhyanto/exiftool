@@ -1,3 +1,4 @@
+#linux and Mac use ' ' , windows use " "
 #Change date only, in datetime format and keep the original time
 exiftool -m '-FileModifyDate<2014:04:05 ${FileModifyDate;s/.* //}' test.mp4
 
@@ -17,3 +18,20 @@ exiftool -a -s -G1 -time:all test.mp4
 #[Track2]        TrackModifyDate                 : 2019:07:06 09:48:44
 #[Track2]        MediaCreateDate                 : 2019:07:06 09:48:44
 #[Track2]        MediaModifyDate                 : 2019:07:06 09:48:44
+
+#selected datetime tag in one line command
+exiftool -m '-FileModifyDate<2009:09:02 ${FileModifyDate;s/.* //}' \
+'-FileInodeChangeDate<2009:09:02 ${FileInodeChangeDate;s/.* //}' \
+'-CreateDate<2009:09:02 ${CreateDate;s/.* //}' \
+'-MediaCreateDate<2009:09:02 ${MediaCreateDate;s/.* //}' \
+test.mp4
+
+
+exiftool -m '-time:all<2009:09:02 ${CreateDate;s/.* //}+07:00' \
+'-FileInodeChangeDate<2009:09:02 ${CreateDate;s/.* //}+07:00' \
+'-FileAccessDate<2009:09:02 ${CreateDate;s/.* //}+07:00' \
+-wm w test.mp4
+
+#all datetime
+exiftool -m '-time:all<2009:09:02 ${CreateDate;s/.* //}+07:00' \
+-wm w test.mp4
