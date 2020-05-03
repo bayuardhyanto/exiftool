@@ -1,2 +1,19 @@
 #Change date only, in datetime format and keep the original time
 exiftool -m '-FileModifyDate<2014:04:05 ${FileModifyDate;s/.* //}' test.mp4
+
+#Show all time options
+exiftool -a -s -G1 -time:all test.mp4
+
+#[System]        FileModifyDate                  : 2014:04:05 09:21:08+07:00
+#[System]        FileAccessDate                  : 2020:05:03 20:15:36+07:00
+#[System]        FileInodeChangeDate             : 2020:05:03 20:15:34+07:00
+#[QuickTime]     CreateDate                      : 2017:12:27 13:41:32
+#[QuickTime]     ModifyDate                      : 2019:07:06 09:48:44
+#[Track1]        TrackCreateDate                 : 2019:07:06 09:48:44
+#[Track1]        TrackModifyDate                 : 2019:07:06 09:48:44
+#[Track1]        MediaCreateDate                 : 2019:07:06 09:48:44
+#[Track1]        MediaModifyDate                 : 2019:07:06 09:48:44
+#[Track2]        TrackCreateDate                 : 2019:07:06 09:48:44
+#[Track2]        TrackModifyDate                 : 2019:07:06 09:48:44
+#[Track2]        MediaCreateDate                 : 2019:07:06 09:48:44
+#[Track2]        MediaModifyDate                 : 2019:07:06 09:48:44
