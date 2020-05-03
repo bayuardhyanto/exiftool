@@ -1,0 +1,2 @@
+#Change date only, in datetime format and keep the original time
+exiftool -m '-FileModifyDate<2014:04:05 ${FileModifyDate;s/.* //}' test.mp4
