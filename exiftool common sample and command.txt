@@ -35,3 +35,6 @@ exiftool -m '-time:all<2009:09:02 ${CreateDate;s/.* //}+07:00' \
 #all datetime
 exiftool -m '-time:all<2009:09:02 ${CreateDate;s/.* //}+07:00' \
 -wm w test.mp4
+
+#get date from filename and set to exif date. ex:img-20220102-WA90287.jpg
+exiftool "-AllDates<filename" -d "%Y-%m-%d" "p:\backup\WhatsApp Images\*.jpg"
